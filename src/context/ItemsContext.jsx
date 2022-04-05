@@ -3,12 +3,10 @@ import { createContext, useState } from "react";
 export const ItemsContext = createContext();
 
 const ItemsState = (props) => {
-    const state = [];
-
-    const [items, setItems] = useState(state);
+    const [items, setItems] = useState([]);
 
     const updateItems = (newItems) => {
-        let finalItems = [...state, ...newItems];
+        let finalItems = [...items, ...[newItems]];
         setItems(finalItems);
     }
 

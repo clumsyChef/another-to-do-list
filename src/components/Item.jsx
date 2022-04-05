@@ -1,9 +1,20 @@
+import { useState, useContext } from "react";
+import { ItemsContext } from "../context/ItemsContext.jsx";
+
 const Item = (props) => {
-    console.log(props.children);
-	return (
-		<div className="single-item">
-             			
-		</div>
+    const context = useContext(ItemsContext);
+    const items = context["items"].map((elem, index) => {
+        return (
+            <div className="single-item" key={index}>{elem}</div>
+        );
+    });
+
+    console.log(items);
+
+    return (
+        <div className="all-items">
+            { items }
+        </div>
 	);
 };
 
